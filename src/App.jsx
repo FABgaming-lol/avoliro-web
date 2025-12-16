@@ -9,6 +9,7 @@ import InkForge from './pages/InkForge'
 import Velano from './pages/Velano'
 import Work from './pages/Work'
 import Apply from './pages/Apply'
+import PricingPhilosophy from './pages/PricingPhilosophy'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="velano" element={<Velano />} />
         <Route path="work" element={<Work />} />
         <Route path="apply" element={<Apply />} />
+        <Route path="pricing-philosophy" element={<PricingPhilosophy />} />
       </Route>
     </Routes>
   )

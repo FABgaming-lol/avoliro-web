@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -21,21 +22,34 @@ export default function Navbar() {
             ]
         },
         { name: 'Work', path: '/work' },
+        { name: 'Pricing', path: '/pricing-philosophy' },
     ]
 
     return (
         <nav className="navbar">
             <div className="container navbar-content">
-                <Link to="/" className="logo-container">
-                    <img src="/avoliro-logo.png" alt="AVOLIRO" className="logo-img" />
-                </Link>
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <Link to="/" className="logo-container">
+                        <img src="/avoliro-logo.png" alt="AVOLIRO" className="logo-img" />
+                    </Link>
+                </motion.div>
 
                 {/* Desktop */}
                 <div className="nav-links desktop-only">
-                    {links.map(link => {
+                    {links.map((link, i) => {
                         if (link.dropdown) {
                             return (
-                                <div className="nav-item-dropdown" key={link.path}>
+                                <motion.div
+                                    className="nav-item-dropdown"
+                                    key={link.path}
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                                >
                                     <Link
                                         to={link.path}
                                         className={`nav-link ${location.pathname.includes(link.path) || link.dropdown.some(d => location.pathname === d.path) ? 'active' : ''}`}
@@ -49,20 +63,32 @@ export default function Navbar() {
                                             </Link>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
                             )
                         }
                         return (
-                            <Link
+                            <motion.div
                                 key={link.path}
-                                to={link.path}
-                                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                {link.name}
-                            </Link>
+                                <Link
+                                    to={link.path}
+                                    className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                                >
+                                    {link.name}
+                                </Link>
+                            </motion.div>
                         )
                     })}
-                    <Link to="/apply" className="nav-link nav-cta">Apply for Evaluation</Link>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: links.length * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        <Link to="/apply" className="nav-link nav-cta">Apply for Evaluation</Link>
+                    </motion.div>
                 </div>
 
                 {/* Mobile Toggle */}

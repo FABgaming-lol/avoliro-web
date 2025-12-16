@@ -1,0 +1,44 @@
+.pricing-list {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.pricing-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--text-primary);
+}
+
+.pricing-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-intro {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.investment-tier {
+    margin-bottom: var(--spacing-lg);
+    border-left: 1px solid var(--border);
+    padding-left: 1.5rem;
+}
+
+.investment-tier h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.investment-tier p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
