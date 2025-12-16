@@ -1,0 +1,53 @@
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    max-width: 20ch;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.hero-cta {
+    margin-top: 3rem;
+}
+
+.bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.process-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+}
+
+.arrow {
+    color: var(--text-secondary);
+}
+
+.mt-lg {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
